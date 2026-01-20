@@ -179,7 +179,7 @@ const ShowWorkLanding = () => {
             {/* Beta Launch Banner */}
             <div className="fixed top-0 left-0 right-0 z-30 bg-blue-600">
                 <div className="max-w-screen-xl mx-auto px-4 py-2 text-white text-center md:px-8">
-                    <p className="font-medium text-xs md:text-base whitespace-nowrap overflow-hidden text-ellipsis">
+                    <p className="font-medium text-[13px] tracking-tight md:text-base whitespace-nowrap overflow-hidden text-ellipsis">
                         Coming Soon — Join the waitlist for early access
                     </p>
                 </div>
@@ -275,7 +275,7 @@ const ShowWorkLanding = () => {
             </header>
 
             {/* Hero Content Section - Mobile-First */}
-            <div className="relative z-10 w-full flex flex-col items-center justify-center" style={{ paddingTop: 'clamp(8rem, 15vh, 12rem)', paddingBottom: 'clamp(1.5rem, 6vh, 3rem)' }}>
+            <div className="relative z-10 w-full flex flex-col items-center justify-center" style={{ paddingTop: 'clamp(11rem, 15vh, 12rem)', paddingBottom: 'clamp(1.5rem, 6vh, 3rem)' }}>
                 <div className="w-full" style={{ maxWidth: 'var(--container-max)', paddingInline: 'var(--container-padding)' }}>
                     <div className="text-center w-full mx-auto" style={{ marginBottom: 'var(--space-2xl)', maxWidth: '56rem' }}>
                         <h1 className="font-black text-slate-900 tracking-tight text-center" style={{
