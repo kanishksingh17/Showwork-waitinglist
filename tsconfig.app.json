@@ -43,6 +43,7 @@
     "src/lib/workers/**/*",
     "src/lib/ai-*.ts",
     "**/*.test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "**/__tests__/**"
   ]
 }
