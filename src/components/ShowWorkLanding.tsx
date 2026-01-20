@@ -48,11 +48,19 @@ const ShowWorkLanding = () => {
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [submitError, setSubmitError] = useState("");
     const [showDemoPopup, setShowDemoPopup] = useState(false);
-    const [isDesktop, setIsDesktop] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(() => {
+        // Initialize safely - default to false (mobile) if window is not available
+        if (typeof window !== 'undefined') {
+            return window.innerWidth >= 640;
+        }
+        return false;
+    });
 
     useEffect(() => {
         const checkDesktop = () => {
-            setIsDesktop(window.innerWidth >= 640); // 640px is sm breakpoint
+            const desktop = window.innerWidth >= 640;
+            console.log('Screen width check:', window.innerWidth, 'px - isDesktop:', desktop);
+            setIsDesktop(desktop);
         };
 
         // Initial check
@@ -623,7 +631,7 @@ const ShowWorkLanding = () => {
                         <div className="p-0 relative z-0">
                             <OrbitingPlatforms />
                             {isDesktop && (
-                                <div className="mt-10 hidden sm:block">
+                                <div className="mt-10">
                                     <DisplayCards />
                                 </div>
                             )}
