@@ -181,10 +181,10 @@ const ShowWorkLanding = () => {
                                     className="logo-bg text-white shadow-lg"
                                     onClick={() => {
                                         const emailInput = document.getElementById('email-input');
-                                        emailInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                        setTimeout(() => {
-                                            emailInput?.focus();
-                                        }, 600);
+                                        if (emailInput) {
+                                            emailInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                            setTimeout(() => emailInput.focus(), 600);
+                                        }
                                     }}
                                 >
                                     Join Waitlist
@@ -207,17 +207,19 @@ const ShowWorkLanding = () => {
                             )}>
                                 <ul className="space-y-4 font-medium text-lg">
                                     <li><a href="#features" onClick={() => setIsMenuOpen(false)} className="block p-2 hover:text-blue-600">Features</a></li>
-                                    <li><a href="#demo" onClick={() => setIsMenuOpen(false)} className="block p-2 hover:text-blue-600">Demo</a></li>
+                                    <li><a href="#journey" onClick={() => setIsMenuOpen(false)} className="block p-2 hover:text-blue-600">Journey</a></li>
                                     <li className="pt-4 border-t border-slate-100 dark:border-slate-800">
                                         <Button
                                             className="w-full logo-bg text-white shadow-lg"
                                             onClick={() => {
                                                 setIsMenuOpen(false);
-                                                const emailInput = document.getElementById('email-input');
-                                                emailInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                                 setTimeout(() => {
-                                                    emailInput?.focus();
-                                                }, 600);
+                                                    const emailInput = document.getElementById('email-input');
+                                                    if (emailInput) {
+                                                        emailInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                                        setTimeout(() => emailInput.focus(), 600);
+                                                    }
+                                                }, 100);
                                             }}
                                         >
                                             Join Waitlist
@@ -604,7 +606,7 @@ const ShowWorkLanding = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                         <div className="p-0 relative z-0">
                             <OrbitingPlatforms />
-                            <div className="mt-10 hidden sm:block">
+                            <div className="mt-10">
                                 <DisplayCards />
                             </div>
                             <div className="mt-24">
