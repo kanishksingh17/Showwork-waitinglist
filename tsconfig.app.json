@@ -17,7 +17,7 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
@@ -39,6 +39,14 @@
     "src"
   ],
   "exclude": [
+    "node_modules",
+    "src/lib/atomic-design/**/*",
+    "src/lib/platform-adapters/**/*",
+    "src/lib/queue/**/*",
+    "src/lib/prisma.ts",
+    "src/lib/mongodb.ts",
+    "src/lib/preview/**/*",
+    "src/lib/portfolioTracker.ts",
     "src/lib/api/**/*",
     "src/lib/workers/**/*",
     "src/lib/ai-*.ts",
