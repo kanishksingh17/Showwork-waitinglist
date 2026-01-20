@@ -79,10 +79,23 @@ body {
 /* Mobile-specific optimizations */
 @media (max-width: 768px) {
 
+  /* Reduce blur on mobile for better performance */
+  .blur-\[10px\],
+  .blur-\[6px\],
+  .blur-\[3px\] {
+    filter: blur(2px) !important;
+  }
+
   /* Optimize touch interactions */
   * {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+  }
+
+  /* Reduce animation complexity on mobile */
+  .animate-aurora {
+    animation-duration: 90s !important;
+    /* Slower, less CPU intensive */
   }
 
   /* Optimize images for mobile */

@@ -168,18 +168,18 @@ const ShowWorkLanding = () => {
 
     return (
         <div className="min-h-screen bg-transparent relative overflow-x-hidden">
-            {/* Aurora Background - Covers full page */}
+            {/* Aurora Background - Fixed to viewport */}
             <AuroraBackground
                 showRadialGradient={false}
-                className="absolute inset-0 -z-10 min-h-full w-full"
+                className="fixed inset-0 -z-10 h-screen w-full"
             >
                 <div></div>
             </AuroraBackground>
 
             {/* Beta Launch Banner */}
             <div className="fixed top-0 left-0 right-0 z-30 bg-blue-600">
-                <div className="max-w-screen-xl mx-auto px-4 py-2 text-white text-center md:px-8">
-                    <p className="font-medium text-sm md:text-base whitespace-nowrap overflow-hidden text-ellipsis">
+                <div className="max-w-screen-xl mx-auto px-4 py-3 text-white sm:text-center md:px-8">
+                    <p className="font-medium">
                         Coming Soon — Join the waitlist for early access
                     </p>
                 </div>
@@ -188,8 +188,8 @@ const ShowWorkLanding = () => {
             {/* Navigation with Scroll Animation */}
             <header className="fixed z-40 w-full top-0">
                 <nav className={cn(
-                    "w-full transition-all duration-300 px-4 pt-[48px]",
-                    isScrolled ? "mt-0" : "mt-4"
+                    "w-full transition-all duration-300 px-4 pt-[60px]",
+                    isScrolled ? "mt-0" : "mt-2"
                 )}>
                     <div className={cn(
                         "mx-auto max-w-6xl px-6 transition-all duration-300 lg:px-12",
@@ -275,7 +275,7 @@ const ShowWorkLanding = () => {
             </header>
 
             {/* Hero Content Section - Mobile-First */}
-            <div className="relative z-10 w-full flex flex-col items-center justify-center" style={{ paddingTop: 'clamp(7rem, 15vh, 12rem)', paddingBottom: 'clamp(1.5rem, 6vh, 3rem)' }}>
+            <div className="relative z-10 w-full flex flex-col items-center justify-center" style={{ paddingTop: 'clamp(8rem, 15vh, 13rem)', paddingBottom: 'clamp(3rem, 8vh, 4rem)' }}>
                 <div className="w-full" style={{ maxWidth: 'var(--container-max)', paddingInline: 'var(--container-padding)' }}>
                     <div className="text-center w-full mx-auto" style={{ marginBottom: 'var(--space-2xl)', maxWidth: '56rem' }}>
                         <h1 className="font-black text-slate-900 tracking-tight text-center" style={{
@@ -408,7 +408,7 @@ const ShowWorkLanding = () => {
 
             {/* Features Section - Auto-Fit Grid */}
             <section id="features" className="bg-surface-elevated relative z-10" style={{
-                paddingTop: 'clamp(8rem, 16vh, 14rem)',
+                paddingTop: 'clamp(10rem, 20vh, 16rem)',
                 paddingBottom: 'clamp(3rem, 10vh, 6rem)'
             }}>
                 <div className="w-full mx-auto" style={{
@@ -434,7 +434,7 @@ const ShowWorkLanding = () => {
                             }}
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
-                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border-2 border-neutral-200/60 dark:border-neutral-700/60 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/70 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
+                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border border-white/10 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="w-12 h-12 logo-bg rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 relative z-10">
                                     <Zap className="h-6 w-6 text-white" />
@@ -504,7 +504,7 @@ const ShowWorkLanding = () => {
                             }}
                             transition={{ duration: 0.6, delay: 0.3 }}
                         >
-                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border-2 border-neutral-200/60 dark:border-neutral-700/60 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/70 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
+                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border border-white/10 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="w-12 h-12 logo-bg rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 relative z-10">
                                     <Globe className="h-6 w-6 text-white" />
@@ -574,7 +574,7 @@ const ShowWorkLanding = () => {
                             }}
                             transition={{ duration: 0.6, delay: 0.5 }}
                         >
-                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border-2 border-neutral-200/60 dark:border-neutral-700/60 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/70 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
+                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border border-white/10 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="w-12 h-12 logo-bg rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 relative z-10">
                                     <Star className="h-6 w-6 text-white" />
@@ -663,37 +663,37 @@ const ShowWorkLanding = () => {
                         </div>
                     </div>
                 </div>
+            </section>
 
-                {/* Demo Popup Modal - Positioned over timeline area */}
-                {showDemoPopup && (
-                    <div className="absolute inset-0 z-50 flex items-center justify-center px-4 bg-black/10 backdrop-blur-[2px] rounded-3xl animate-in fade-in duration-300">
-                        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl p-6 sm:p-8 max-w-md w-full relative transform transition-all scale-100 animate-in zoom-in-95 duration-300 border border-slate-200 dark:border-slate-800 my-auto">
-                            <button
-                                onClick={() => setShowDemoPopup(false)}
-                                className="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                            >
-                                <X className="w-5 h-5 text-slate-500" />
-                            </button>
+            {/* Demo Popup Modal */}
+            {showDemoPopup && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-300">
+                    <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl p-6 sm:p-8 max-w-md w-full relative transform transition-all scale-100 animate-in zoom-in-95 duration-300 border border-slate-200 dark:border-slate-800">
+                        <button
+                            onClick={() => setShowDemoPopup(false)}
+                            className="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        >
+                            <X className="w-5 h-5 text-slate-500" />
+                        </button>
 
-                            <div className="text-center">
-                                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Demo Coming Soon!</h3>
-                                <p className="text-slate-600 dark:text-slate-300 mb-6">
-                                    We're putting the finishing touches on our interactive demo. You've secured your spot on the waitlist and will be the first to know when it's live!
-                                </p>
-                                <Button
-                                    onClick={() => setShowDemoPopup(false)}
-                                    className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-6"
-                                >
-                                    Got it, thanks!
-                                </Button>
+                        <div className="text-center">
+                            <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                             </div>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Demo Coming Soon!</h3>
+                            <p className="text-slate-600 dark:text-slate-300 mb-6">
+                                We're putting the finishing touches on our interactive demo. You've secured your spot on the waitlist and will be the first to know when it's live!
+                            </p>
+                            <Button
+                                onClick={() => setShowDemoPopup(false)}
+                                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-6"
+                            >
+                                Got it, thanks!
+                            </Button>
                         </div>
                     </div>
-                )}
-            </section>
+                </div>
+            )}
 
             {/* Footer */}
             <footer className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 dark:from-blue-950 dark:via-blue-900 dark:to-slate-950 text-white py-16">
