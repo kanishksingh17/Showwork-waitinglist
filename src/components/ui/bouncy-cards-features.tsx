@@ -65,7 +65,7 @@ const BounceCard = ({ className, children }: { className: string; children: Reac
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.15, ease: "easeOut" }}
       className={cn(
-        "group relative min-h-[250px] sm:min-h-[300px] cursor-pointer overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 will-change-transform",
+        "group relative min-h-[250px] sm:min-h-[300px] cursor-pointer overflow-hidden rounded-2xl bg-slate-100 p-6 sm:p-8 will-change-transform",
         className
       )}
     >

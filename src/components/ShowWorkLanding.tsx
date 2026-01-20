@@ -434,7 +434,7 @@ const ShowWorkLanding = () => {
                             }}
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
-                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border border-white/10 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
+                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="w-12 h-12 logo-bg rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 relative z-10">
                                     <Zap className="h-6 w-6 text-white" />
@@ -504,7 +504,7 @@ const ShowWorkLanding = () => {
                             }}
                             transition={{ duration: 0.6, delay: 0.3 }}
                         >
-                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border border-white/10 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
+                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="w-12 h-12 logo-bg rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 relative z-10">
                                     <Globe className="h-6 w-6 text-white" />
@@ -574,7 +574,7 @@ const ShowWorkLanding = () => {
                             }}
                             transition={{ duration: 0.6, delay: 0.5 }}
                         >
-                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border border-white/10 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
+                            <div className="group bg-white/40 backdrop-blur-md rounded-xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:z-10 relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="w-12 h-12 logo-bg rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 relative z-10">
                                     <Star className="h-6 w-6 text-white" />
