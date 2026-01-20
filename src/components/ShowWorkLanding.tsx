@@ -275,7 +275,7 @@ const ShowWorkLanding = () => {
             </header>
 
             {/* Hero Content Section - Mobile-First */}
-            <div className="relative z-10 w-full flex flex-col items-center justify-center" style={{ paddingTop: 'clamp(5rem, 12vh, 11rem)', paddingBottom: 'clamp(1.5rem, 6vh, 3rem)' }}>
+            <div className="relative z-10 w-full flex flex-col items-center justify-center" style={{ paddingTop: 'clamp(7rem, 15vh, 12rem)', paddingBottom: 'clamp(1.5rem, 6vh, 3rem)' }}>
                 <div className="w-full" style={{ maxWidth: 'var(--container-max)', paddingInline: 'var(--container-padding)' }}>
                     <div className="text-center w-full mx-auto" style={{ marginBottom: 'var(--space-2xl)', maxWidth: '56rem' }}>
                         <h1 className="font-black text-slate-900 tracking-tight text-center" style={{
