@@ -189,7 +189,7 @@ const ShowWorkLanding = () => {
             <header className="fixed z-40 w-full top-0">
                 <nav className={cn(
                     "w-full transition-all duration-300 px-4 pt-[48px]",
-                    isScrolled ? "mt-0" : "mt-1"
+                    isScrolled ? "mt-0" : "mt-4"
                 )}>
                     <div className={cn(
                         "mx-auto max-w-6xl px-6 transition-all duration-300 lg:px-12",
@@ -663,37 +663,37 @@ const ShowWorkLanding = () => {
                         </div>
                     </div>
                 </div>
-            </section>
 
-            {/* Demo Popup Modal */}
-            {showDemoPopup && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-300">
-                    <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl p-6 sm:p-8 max-w-md w-full relative transform transition-all scale-100 animate-in zoom-in-95 duration-300 border border-slate-200 dark:border-slate-800">
-                        <button
-                            onClick={() => setShowDemoPopup(false)}
-                            className="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                        >
-                            <X className="w-5 h-5 text-slate-500" />
-                        </button>
-
-                        <div className="text-center">
-                            <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Demo Coming Soon!</h3>
-                            <p className="text-slate-600 dark:text-slate-300 mb-6">
-                                We're putting the finishing touches on our interactive demo. You've secured your spot on the waitlist and will be the first to know when it's live!
-                            </p>
-                            <Button
+                {/* Demo Popup Modal - Positioned over timeline area */}
+                {showDemoPopup && (
+                    <div className="absolute inset-0 z-50 flex items-center justify-center px-4 bg-black/10 backdrop-blur-[2px] rounded-3xl animate-in fade-in duration-300">
+                        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl p-6 sm:p-8 max-w-md w-full relative transform transition-all scale-100 animate-in zoom-in-95 duration-300 border border-slate-200 dark:border-slate-800 my-auto">
+                            <button
                                 onClick={() => setShowDemoPopup(false)}
-                                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-6"
+                                className="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                             >
-                                Got it, thanks!
-                            </Button>
+                                <X className="w-5 h-5 text-slate-500" />
+                            </button>
+
+                            <div className="text-center">
+                                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Demo Coming Soon!</h3>
+                                <p className="text-slate-600 dark:text-slate-300 mb-6">
+                                    We're putting the finishing touches on our interactive demo. You've secured your spot on the waitlist and will be the first to know when it's live!
+                                </p>
+                                <Button
+                                    onClick={() => setShowDemoPopup(false)}
+                                    className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-6"
+                                >
+                                    Got it, thanks!
+                                </Button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )}
+            </section>
 
             {/* Footer */}
             <footer className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 dark:from-blue-950 dark:via-blue-900 dark:to-slate-950 text-white py-16">
