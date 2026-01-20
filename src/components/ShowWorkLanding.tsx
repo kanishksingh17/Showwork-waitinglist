@@ -606,7 +606,7 @@ const ShowWorkLanding = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                         <div className="p-0 relative z-0">
                             <OrbitingPlatforms />
-                            <div className="mt-10 hidden sm:block">
+                            <div className="mt-10 hidden sm:block"> {/* Hidden on mobile */}
                                 <DisplayCards />
                             </div>
                             <div className="mt-24">
