@@ -17,6 +17,8 @@ export function ShowWorkTimeline() {
                             src="/timeline-step1.png"
                             alt="ShowWork Projects Dashboard"
                             className="w-full h-auto"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
                 </div>
@@ -36,6 +38,8 @@ export function ShowWorkTimeline() {
                             src="/timeline-step2.png"
                             alt="Choose Your Domain and Template"
                             className="w-full h-auto"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
                 </div>
@@ -54,6 +58,8 @@ export function ShowWorkTimeline() {
                             src="/timeline-step3.png"
                             alt="AI Generated Portfolio Preview"
                             className="w-full h-auto"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
                 </div>
@@ -72,6 +78,8 @@ export function ShowWorkTimeline() {
                             src="/timeline-step4.png"
                             alt="Content Management Dashboard"
                             className="w-full h-auto"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
                 </div>
@@ -90,6 +98,8 @@ export function ShowWorkTimeline() {
                             src="/timeline-step5.png"
                             alt="Multi-Platform Integrations"
                             className="w-full h-auto"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
                 </div>

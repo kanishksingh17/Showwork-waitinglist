@@ -8,10 +8,23 @@ export function OrbitingPlatforms() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
+        let timeoutId: NodeJS.Timeout;
+
+        const checkMobile = () => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                setIsMobile(window.innerWidth < 768);
+            }, 150);
+        };
+
+        // Initial check without debounce
+        setIsMobile(window.innerWidth < 768);
+
+        window.addEventListener("resize", checkMobile, { passive: true });
+        return () => {
+            clearTimeout(timeoutId);
+            window.removeEventListener("resize", checkMobile);
+        };
     }, []);
 
     const rInner = isMobile ? 80 : 140;

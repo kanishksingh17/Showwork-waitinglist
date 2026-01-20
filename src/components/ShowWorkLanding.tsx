@@ -57,20 +57,30 @@ const ShowWorkLanding = () => {
     });
 
     useEffect(() => {
+        let timeoutId: NodeJS.Timeout;
+
         const checkDesktop = () => {
-            const desktop = window.innerWidth >= 640;
-            console.log('Screen width check:', window.innerWidth, 'px - isDesktop:', desktop);
-            setIsDesktop(desktop);
+            // Debounce the resize check
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                const desktop = window.innerWidth >= 640;
+                console.log('Screen width check:', window.innerWidth, 'px - isDesktop:', desktop);
+                setIsDesktop(desktop);
+            }, 150); // Debounce resize events
         };
 
         // Initial check
-        checkDesktop();
+        const desktop = window.innerWidth >= 640;
+        setIsDesktop(desktop);
 
-        // Add event listener
-        window.addEventListener('resize', checkDesktop);
+        // Add event listener with passive option
+        window.addEventListener('resize', checkDesktop, { passive: true });
 
         // Cleanup
-        return () => window.removeEventListener('resize', checkDesktop);
+        return () => {
+            clearTimeout(timeoutId);
+            window.removeEventListener('resize', checkDesktop);
+        };
     }, []);
 
     const rotatingWords = useMemo(
@@ -85,13 +95,21 @@ const ShowWorkLanding = () => {
         return () => clearInterval(interval);
     }, [rotatingWords.length]);
 
-    // Scroll handler for navigation animation
+    // Scroll handler for navigation animation with throttling
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setIsScrolled(window.scrollY > 50);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -693,31 +711,25 @@ const ShowWorkLanding = () => {
 
                         <div className="flex items-center space-x-6">
                             <a
-                                href="#"
+                                href="https://x.com/ShowWork_"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-white/80 hover:text-white transition-colors"
                             >
                                 <Twitter className="h-5 w-5" />
                             </a>
                             <a
-                                href="#"
-                                className="text-white/80 hover:text-white transition-colors"
-                            >
-                                <Github className="h-5 w-5" />
-                            </a>
-                            <a
-                                href="#"
+                                href="https://www.linkedin.com/company/showwork/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-white/80 hover:text-white transition-colors"
                             >
                                 <Linkedin className="h-5 w-5" />
                             </a>
                             <a
-                                href="#"
-                                className="text-white/80 hover:text-white transition-colors"
-                            >
-                                <Youtube className="h-5 w-5" />
-                            </a>
-                            <a
-                                href="#"
+                                href="https://www.instagram.com/sho.wwork"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-white/80 hover:text-white transition-colors"
                             >
                                 <Instagram className="h-5 w-5" />

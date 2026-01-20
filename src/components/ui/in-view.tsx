@@ -27,10 +27,9 @@ export function InView({
   className = '',
 }: InViewProps) {
   const ref = useRef(null);
-  // Add root margin to viewOptions to ensure proper scroll detection
-  const viewOptionsWithDefaults = {
-    once: false,
-    margin: '0px',
+  const viewOptionsWithDefaults: UseInViewOptions = {
+    once: true, // Changed to true for better performance - animations only play once
+    margin: '-100px', // Better threshold for triggering
     amount: 0.1,
     ...viewOptions,
   };

@@ -43,12 +43,13 @@ export function OrbitingCircles({
           100% { transform: rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg); }
         }
       `}</style>
-            <div style={{ transform: `rotate(${startAngleDeg}deg)` }}>
+            <div style={{ transform: `rotate(${startAngleDeg}deg)`, willChange: 'transform' }}>
                 <div
-                    className="will-change-transform"
+                    className="will-change-transform transform-gpu"
                     style={{
                         ...style,
                         animation: `orbit ${duration}s linear infinite`,
+                        transform: 'translateZ(0)', // Force GPU acceleration
                     }}
                 >
                     <div className="pointer-events-auto" style={{ transform: `rotate(${-startAngleDeg}deg)` }}>

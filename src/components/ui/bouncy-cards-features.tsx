@@ -52,12 +52,20 @@ export const BouncyCardsFeatures = () => {
 };
 
 const BounceCard = ({ className, children }: { className: string; children: React.ReactNode }) => {
+  // Detect if device supports hover (desktop) vs touch (mobile)
+  const [isTouchDevice, setIsTouchDevice] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+
   return (
     <motion.div
-      whileHover={{ scale: 0.95, rotate: "-1deg" }}
-      whileTap={{ scale: 0.95, rotate: "-1deg" }}
+      whileHover={isTouchDevice ? {} : { scale: 0.95, rotate: "-1deg" }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ duration: 0.15, ease: "easeOut" }}
       className={cn(
-        "group relative min-h-[250px] sm:min-h-[300px] cursor-pointer overflow-hidden rounded-2xl bg-slate-100 p-6 sm:p-8",
+        "group relative min-h-[250px] sm:min-h-[300px] cursor-pointer overflow-hidden rounded-2xl bg-slate-100 p-6 sm:p-8 will-change-transform",
         className
       )}
     >

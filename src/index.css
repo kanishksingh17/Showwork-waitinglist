@@ -37,11 +37,87 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  /* Performance optimizations */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 #root {
   position: relative;
   min-height: 100vh;
+}
+
+/* Performance optimizations */
+* {
+  /* Enable GPU acceleration for transforms and opacity changes */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+
+  /* Reduce blur on mobile for better performance */
+  .blur-\[10px\],
+  .blur-\[6px\],
+  .blur-\[3px\] {
+    filter: blur(2px) !important;
+  }
+
+  /* Optimize touch interactions */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Reduce animation complexity on mobile */
+  .animate-aurora {
+    animation-duration: 90s !important;
+    /* Slower, less CPU intensive */
+  }
+
+  /* Optimize images for mobile */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+  }
+
+  /* Reduce transform complexity on mobile */
+  .transform-gpu {
+    transform: translateZ(0);
+  }
+}
+
+/* Fast tap for better mobile responsiveness */
+input,
+button,
+a,
+select,
+textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ShowWork Design System Variables */
