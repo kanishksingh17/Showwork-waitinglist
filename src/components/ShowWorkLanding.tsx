@@ -168,18 +168,18 @@ const ShowWorkLanding = () => {
 
     return (
         <div className="min-h-screen bg-transparent relative overflow-x-hidden">
-            {/* Aurora Background - Fixed to viewport */}
+            {/* Aurora Background - Absolute to cover full content height */}
             <AuroraBackground
                 showRadialGradient={false}
-                className="fixed inset-0 -z-10 h-screen w-full"
+                className="absolute inset-0 -z-10 h-full w-full"
             >
                 <div></div>
             </AuroraBackground>
 
             {/* Beta Launch Banner */}
             <div className="fixed top-0 left-0 right-0 z-30 bg-blue-600">
-                <div className="max-w-screen-xl mx-auto px-4 py-3 text-white sm:text-center md:px-8">
-                    <p className="font-medium">
+                <div className="max-w-screen-xl mx-auto px-4 py-2 text-white text-center md:px-8">
+                    <p className="font-medium text-xs md:text-base whitespace-nowrap overflow-hidden text-ellipsis">
                         Coming Soon — Join the waitlist for early access
                     </p>
                 </div>
@@ -188,13 +188,13 @@ const ShowWorkLanding = () => {
             {/* Navigation with Scroll Animation */}
             <header className="fixed z-40 w-full top-0">
                 <nav className={cn(
-                    "w-full transition-all duration-300 px-4 pt-[60px]",
-                    isScrolled ? "mt-0" : "mt-2"
+                    "w-full transition-all duration-300 px-4 pt-[48px]",
+                    isScrolled ? "mt-0" : "mt-4"
                 )}>
                     <div className={cn(
                         "mx-auto max-w-6xl px-6 transition-all duration-300 lg:px-12",
-                        isScrolled && "bg-background/80 max-w-4xl rounded-2xl backdrop-blur-lg px-5 shadow-lg",
-                        isMenuOpen && "bg-background/95 rounded-2xl shadow-xl"
+                        isScrolled && "bg-white/50 dark:bg-slate-900/50 max-w-4xl rounded-2xl backdrop-blur-xl px-6 py-2 shadow-xl mt-2",
+                        isMenuOpen && "bg-white/95 dark:bg-slate-900/95 rounded-2xl shadow-xl"
                     )}>
                         <div className="relative flex items-center justify-between gap-6 py-3 lg:py-4">
                             {/* Logo */}
@@ -275,7 +275,7 @@ const ShowWorkLanding = () => {
             </header>
 
             {/* Hero Content Section - Mobile-First */}
-            <div className="relative z-10 w-full flex flex-col items-center justify-center" style={{ paddingTop: 'clamp(8rem, 15vh, 13rem)', paddingBottom: 'clamp(3rem, 8vh, 4rem)' }}>
+            <div className="relative z-10 w-full flex flex-col items-center justify-center" style={{ paddingTop: 'clamp(8rem, 15vh, 12rem)', paddingBottom: 'clamp(1.5rem, 6vh, 3rem)' }}>
                 <div className="w-full" style={{ maxWidth: 'var(--container-max)', paddingInline: 'var(--container-padding)' }}>
                     <div className="text-center w-full mx-auto" style={{ marginBottom: 'var(--space-2xl)', maxWidth: '56rem' }}>
                         <h1 className="font-black text-slate-900 tracking-tight text-center" style={{
