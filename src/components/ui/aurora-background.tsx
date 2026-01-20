@@ -15,16 +15,17 @@ export const AuroraBackground = ({
 }: AuroraBackgroundProps) => {
   return (
     <main>
-      className={cn(
-        "relative flex flex-col h-[100vh] items-center justify-center bg-zinc-50 dark:bg-zinc-900 text-slate-950 transition-bg",
-        className
-      )}
-      {...props}
+      <div
+        className={cn(
+          "relative flex flex-col h-[100vh] items-center justify-center bg-zinc-50 dark:bg-zinc-900 text-slate-950 transition-bg",
+          className
+        )}
+        {...props}
       >
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          className={cn(
-            `
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className={cn(
+              `
             [background-image:var(--white-gradient),var(--aurora)]
             dark:[background-image:var(--dark-gradient),var(--aurora)]
             [background-size:300%,_200%]
@@ -37,19 +38,19 @@ export const AuroraBackground = ({
             pointer-events-none
             absolute -inset-[10px] opacity-40 will-change-transform
             transform-gpu`,
-            showRadialGradient &&
-            `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
-          )}
-          style={{
-            "--white-gradient": "repeating-linear-gradient(100deg,#ffffff 0%,#ffffff 7%,transparent 10%,transparent 12%,#ffffff 16%)",
-            "--dark-gradient": "repeating-linear-gradient(100deg,#000000 0%,#000000 7%,transparent 10%,transparent 12%,#000000 16%)",
-            "--aurora": "repeating-linear-gradient(100deg,#3b82f6 10%,#a5b4fc 15%,#93c5fd 20%,#ddd6fe 25%,#60a5fa 30%)",
-            "--transparent": "transparent",
-          } as React.CSSProperties}
-        ></div>
+              showRadialGradient &&
+              `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
+            )}
+            style={{
+              "--white-gradient": "repeating-linear-gradient(100deg,#ffffff 0%,#ffffff 7%,transparent 10%,transparent 12%,#ffffff 16%)",
+              "--dark-gradient": "repeating-linear-gradient(100deg,#000000 0%,#000000 7%,transparent 10%,transparent 12%,#000000 16%)",
+              "--aurora": "repeating-linear-gradient(100deg,#3b82f6 10%,#a5b4fc 15%,#93c5fd 20%,#ddd6fe 25%,#60a5fa 30%)",
+              "--transparent": "transparent",
+            } as React.CSSProperties}
+          ></div>
+        </div>
+        {children}
       </div>
-      {children}
-    </div>
     </main >
   );
 };
