@@ -179,7 +179,13 @@ const ShowWorkLanding = () => {
                                 <Button
                                     size="sm"
                                     className="logo-bg text-white shadow-lg"
-                                    onClick={() => document.getElementById('hero-signup')?.scrollIntoView({ behavior: 'smooth' })}
+                                    onClick={() => {
+                                        const emailInput = document.getElementById('email-input');
+                                        emailInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                        setTimeout(() => {
+                                            emailInput?.focus();
+                                        }, 600);
+                                    }}
                                 >
                                     Join Waitlist
                                 </Button>
@@ -207,7 +213,11 @@ const ShowWorkLanding = () => {
                                             className="w-full logo-bg text-white shadow-lg"
                                             onClick={() => {
                                                 setIsMenuOpen(false);
-                                                document.getElementById('hero-signup')?.scrollIntoView({ behavior: 'smooth' });
+                                                const emailInput = document.getElementById('email-input');
+                                                emailInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                                setTimeout(() => {
+                                                    emailInput?.focus();
+                                                }, 600);
                                             }}
                                         >
                                             Join Waitlist
@@ -281,6 +291,7 @@ const ShowWorkLanding = () => {
                                         onSubmit={handleEmailSubmit}
                                         className="relative flex flex-col sm:flex-row items-center bg-white rounded-2xl sm:rounded-full p-2 sm:p-1.5 shadow-lg border border-slate-200/60 focus-within:ring-4 focus-within:ring-blue-500/10 focus-within:border-blue-500/50 transition-all duration-300">
                                         <Input
+                                            id="email-input"
                                             type="email"
                                             placeholder="Email address"
                                             value={email}
