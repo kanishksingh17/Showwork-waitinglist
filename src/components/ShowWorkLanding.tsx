@@ -284,7 +284,7 @@ const ShowWorkLanding = () => {
                                             type="email"
                                             placeholder="Email address"
                                             value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
+                                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                                             className="w-full sm:flex-1 bg-transparent border-none focus:ring-0 focus:border-none focus-visible:ring-0 focus-visible:ring-offset-0 outline-none shadow-none text-base px-5 h-11 placeholder:text-slate-400"
                                             required
                                         />
