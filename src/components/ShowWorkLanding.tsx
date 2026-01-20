@@ -48,6 +48,22 @@ const ShowWorkLanding = () => {
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [submitError, setSubmitError] = useState("");
     const [showDemoPopup, setShowDemoPopup] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        const checkDesktop = () => {
+            setIsDesktop(window.innerWidth >= 640); // 640px is sm breakpoint
+        };
+
+        // Initial check
+        checkDesktop();
+
+        // Add event listener
+        window.addEventListener('resize', checkDesktop);
+
+        // Cleanup
+        return () => window.removeEventListener('resize', checkDesktop);
+    }, []);
 
     const rotatingWords = useMemo(
         () => ["Professionally", "Stunningly", "Effortlessly", "Powerfully", "Instantly", "Beautifully"],
@@ -606,9 +622,11 @@ const ShowWorkLanding = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                         <div className="p-0 relative z-0">
                             <OrbitingPlatforms />
-                            <div className="mt-10 hidden sm:block"> {/* Hidden on mobile */}
-                                <DisplayCards />
-                            </div>
+                            {isDesktop && (
+                                <div className="mt-10 hidden sm:block">
+                                    <DisplayCards />
+                                </div>
+                            )}
                             <div className="mt-24">
                                 <BouncyCardsFeatures />
                             </div>
