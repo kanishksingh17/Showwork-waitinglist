@@ -8,7 +8,7 @@ import { ShowWorkTimeline } from "@/components/ui/showwork-timeline";
 import DisplayCards from "@/components/ui/display-cards";
 import { InView } from "@/components/ui/in-view";
 import { BouncyCardsFeatures } from "@/components/ui/bouncy-cards-features";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+
 import { cn } from "@/lib/utils";
 import {
     Menu,
@@ -168,13 +168,8 @@ const ShowWorkLanding = () => {
 
     return (
         <div className="min-h-screen bg-transparent relative overflow-x-hidden">
-            {/* Aurora Background - Absolute to cover full content height */}
-            <AuroraBackground
-                showRadialGradient={false}
-                className="absolute inset-0 -z-10 h-full w-full"
-            >
-                <div></div>
-            </AuroraBackground>
+
+
 
             {/* Beta Launch Banner */}
             <div className="fixed top-0 left-0 right-0 z-30 bg-blue-600">
@@ -275,13 +270,70 @@ const ShowWorkLanding = () => {
             </header>
 
             {/* Hero Content Section - Mobile-First */}
-            <div className="relative z-10 w-full flex flex-col items-center justify-center" style={{ paddingTop: 'clamp(11rem, 15vh, 12rem)', paddingBottom: 'clamp(1.5rem, 6vh, 3rem)' }}>
+            <div className="relative z-10 w-full flex flex-col items-center justify-center overflow-hidden" style={{ paddingTop: 'clamp(11rem, 15vh, 12rem)', paddingBottom: 'clamp(1.5rem, 6vh, 3rem)' }}>
+                {/* Background Gradients */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none z-0">
+                    <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400/20 rounded-full blur-[100px] mix-blend-multiply animate-blob"></div>
+                    <div className="absolute top-20 right-20 w-72 h-72 bg-purple-400/20 rounded-full blur-[100px] mix-blend-multiply animate-blob animation-delay-2000"></div>
+                    <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-400/20 rounded-full blur-[100px] mix-blend-multiply animate-blob animation-delay-4000"></div>
+                </div>
+
+
                 <div className="w-full" style={{ maxWidth: 'var(--container-max)', paddingInline: 'var(--container-padding)' }}>
                     <div className="text-center w-full mx-auto" style={{ marginBottom: 'var(--space-2xl)', maxWidth: '56rem' }}>
-                        <h1 className="font-black text-slate-900 tracking-tight text-center" style={{
+                        <h1 className="font-black text-slate-900 tracking-tight text-center relative" style={{
                             fontSize: 'clamp(2.25rem, 7vw + 0.5rem, 5rem)',
                             lineHeight: '1.15',
                         }}>
+                            {/* Floating Widget 1: Analytics (Top Left) */}
+                            <div className="hidden lg:flex absolute -top-12 -left-20 bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/50 items-center gap-3 animate-float animation-delay-100 z-20 hover:scale-105 transition-transform cursor-default">
+                                <div className="p-2 bg-blue-100 rounded-xl">
+                                    <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Total Views</p>
+                                    <p className="text-sm font-bold text-slate-900">12.5k <span className="text-green-500 text-xs font-medium ml-1">↑ 14%</span></p>
+                                </div>
+                            </div>
+
+                            {/* Floating Widget 2: GitHub (Top Right) */}
+                            <div className="hidden lg:flex absolute -top-8 -right-16 bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/50 items-center gap-2 animate-float animation-delay-500 z-20 hover:scale-105 transition-transform cursor-default">
+                                <Github className="w-5 h-5 text-slate-900" />
+                                <span className="text-sm font-bold text-slate-700">GitHub Connected</span>
+                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse ml-1"></div>
+                            </div>
+
+                            {/* Floating Widget 3: Offers (Bottom Left) */}
+                            <div className="hidden lg:flex absolute top-24 -left-24 bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/50 items-center gap-3 animate-float animation-delay-700 z-20 hover:scale-105 transition-transform cursor-default">
+                                <div className="relative">
+                                    <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center overflow-hidden border-2 border-white">
+                                        <img src="https://ui-avatars.com/api/?name=Recruiter&background=0D8ABC&color=fff" alt="Recruiter" />
+                                    </div>
+                                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white flex items-center justify-center">
+                                        <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+                                    </div>
+                                </div>
+                                <div className="text-left">
+                                    <p className="text-xs font-bold text-slate-900">New Job Offer</p>
+                                    <p className="text-[10px] text-slate-500">Frontend Dev • Remote</p>
+                                </div>
+                            </div>
+
+                            {/* Floating Widget 4: Upload (Bottom Right) */}
+                            <div className="hidden lg:flex absolute top-32 -right-8 bg-white/90 backdrop-blur-md p-3 pr-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/50 items-center gap-3 animate-float animation-delay-300 z-20 hover:scale-105 transition-transform cursor-default transform rotate-3">
+                                <div className="p-2 bg-purple-100 rounded-xl">
+                                    <Zap className="w-5 h-5 text-purple-600" />
+                                </div>
+                                <div className="text-left">
+                                    <p className="text-xs font-bold text-slate-900">Project Deployed</p>
+                                    <div className="h-1.5 w-24 bg-slate-100 rounded-full mt-1 overflow-hidden">
+                                        <div className="h-full bg-purple-500 w-full animate-loadingBar"></div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <span className="block">
                                 Showcase Your Work
                             </span>
@@ -382,6 +434,232 @@ const ShowWorkLanding = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Comparison Section: "Success vs Struggle" */}
+            <section className="py-12 relative z-10">
+                <div className="max-w-6xl mx-auto px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+                            Talent is everywhere. <br className="hidden sm:block" />
+                            <span className="text-blue-600">Visibility is not.</span>
+                        </h2>
+                        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                            Stop letting your best work go unnoticed. See the difference ShowWork makes.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8 items-stretch">
+                        {/* Card 1: The Struggle (Invisible Developer) */}
+                        <div className="group relative bg-slate-50 border border-slate-200 rounded-[2rem] p-8 overflow-hidden hover:bg-slate-100 transition-colors">
+                            <div className="absolute top-0 right-0 p-4 opacity-15">
+                                <svg className="w-32 h-32 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                </svg>
+                            </div>
+                            <div className="relative z-10 text-center md:text-left">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider mb-6">
+                                    Without ShowWork
+                                </div>
+                                <h3 className="text-2xl font-bold text-slate-500 mb-2">The Invisible Developer</h3>
+                                <p className="text-slate-500 mb-8">Great code, but no one sees it. Opportunities slip away.</p>
+
+                                <div className="space-y-4">
+                                    <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 opacity-70">
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <div className="w-8 h-8 rounded-full bg-slate-200"></div>
+                                            <div className="h-3 w-24 bg-slate-200 rounded"></div>
+                                        </div>
+                                        <div className="h-2 w-full bg-slate-100 rounded mb-2"></div>
+                                        <div className="h-2 w-3/4 bg-slate-100 rounded"></div>
+                                        <div className="mt-3 flex gap-2">
+                                            <span className="text-xs text-slate-400">0 views</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-slate-400 text-sm">
+                                        <X className="w-4 h-4" />
+                                        <span>Resume sent to the void</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-slate-400 text-sm">
+                                        <X className="w-4 h-4" />
+                                        <span>Ghosted by recruiters</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 2: The Success (ShowWork Advantage) */}
+                        <div className="group relative bg-blue-600 text-white rounded-[2rem] p-8 overflow-hidden shadow-2xl shadow-blue-500/30 transform hover:scale-[1.02] transition-transform duration-300">
+                            <div className="absolute inset-0 bg-blue-500/20 backdrop-blur-sm pointer-events-none"></div>
+                            {/* Decorative gradients */}
+                            <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                            <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+
+                            <div className="relative z-10 text-center md:text-left">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-md border border-white/20">
+                                    With ShowWork
+                                </div>
+                                <h3 className="text-2xl font-bold text-white mb-2">The 1% Developer</h3>
+                                <p className="text-blue-100 mb-8">Work that speaks for itself. Inbound opportunities daily.</p>
+
+                                <div className="space-y-4">
+                                    <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20">
+                                        <div className="flex items-center justify-between mb-3">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-400 to-orange-500 border-2 border-white"></div>
+                                                <div>
+                                                    <div className="h-3 w-24 bg-white/40 rounded mb-1"></div>
+                                                    <div className="h-2 w-16 bg-white/20 rounded"></div>
+                                                </div>
+                                            </div>
+                                            <div className="text-xs font-bold bg-green-500 text-white px-2 py-0.5 rounded-full shadow-lg shadow-green-500/20">
+                                                OFFER RECEIVED
+                                            </div>
+                                        </div>
+                                        <div className="p-3 bg-white/10 rounded-lg text-sm text-blue-50 italic">
+                                            "Just saw your ShowWork profile. We need someone exactly like you. Can we chat?"
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-white text-sm font-medium">
+                                        <div className="p-1 bg-green-500 rounded-full"><div className="w-2 h-2 bg-white rounded-full"></div></div>
+                                        <span>Profile info viewed by LinkedIn, Google, Meta, GitHub</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-white text-sm font-medium">
+                                        <div className="p-1 bg-green-500 rounded-full"><div className="w-2 h-2 bg-white rounded-full"></div></div>
+                                        <span>Skipped technical screening</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 'Beyond Code' Section: Interaction Timeline */}
+            <section className="py-16 relative overflow-hidden bg-slate-50 border-y border-slate-200">
+                <div className="max-w-4xl mx-auto px-6 relative z-10">
+                    <div className="text-center mb-16 max-w-3xl mx-auto">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6">
+                            The Human Side of Code
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
+                            Commits are for machines. <br />
+                            <span className="text-blue-600">ShowWork is for your story.</span>
+                        </h2>
+                        <p className="text-lg text-slate-600">
+                            Don't let your work be defined just by green squares. Show the discussions, the decisions, and the community impact.
+                        </p>
+                    </div>
+
+                    <div className="relative max-w-3xl mx-auto">
+                        {/* Vertical Timeline Line */}
+                        <div className="absolute left-8 top-0 bottom-0 w-px bg-slate-200 hidden sm:block"></div>
+
+                        <div className="space-y-8 relative">
+                            {/* Item 1: LinkedIn */}
+                            <div className="relative pl-0 sm:pl-24 group">
+                                {/* Timeline Node */}
+                                <div className="absolute left-4 top-6 transform -translate-x-1/2 w-8 h-8 bg-white border border-slate-200 rounded-full items-center justify-center z-10 hidden sm:flex">
+                                    <Linkedin className="w-4 h-4 text-[#0077b5]" />
+                                </div>
+
+                                {/* Card */}
+                                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+                                    <div className="flex items-center justify-between mb-3">
+                                        <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
+                                            <span className="bg-[#0077b5] text-white p-1 rounded-md sm:hidden"><Linkedin className="w-3 h-3" /></span>
+                                            <span>Posted on LinkedIn: 'The Future of Frontend'</span>
+                                        </div>
+                                        <span className="text-xs text-slate-400 bg-slate-50 px-2 py-1 rounded-full border border-slate-100">View Post</span>
+                                    </div>
+                                    <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Just shared my thoughts on the new React server components. It's a paradigm shift that we all need to prepare for. Read the full article on my blog...
+                                    </p>
+                                    <div className="flex items-center gap-3">
+                                        <div className="flex -space-x-2 overflow-hidden">
+                                            <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://ui-avatars.com/api/?name=Alex&background=random" alt="" />
+                                            <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://ui-avatars.com/api/?name=Sarah&background=random" alt="" />
+                                            <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://ui-avatars.com/api/?name=Mike&background=random" alt="" />
+                                        </div>
+                                        <span className="text-xs text-slate-400">Latest Activity: 2 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Item 2: Reddit */}
+                            <div className="relative pl-0 sm:pl-24 group">
+                                <div className="absolute left-4 top-6 transform -translate-x-1/2 w-8 h-8 bg-white border border-slate-200 rounded-full items-center justify-center z-10 hidden sm:flex">
+                                    <div className="w-4 h-4 text-[#FF4500] font-bold flex items-center justify-center">r/</div>
+                                </div>
+
+                                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+                                    <div className="flex items-center justify-between mb-3">
+                                        <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
+                                            <span className="bg-[#FF4500] text-white p-1 rounded-md sm:hidden text-[10px] font-bold">r/</span>
+                                            <span>Reddit discussion in r/reactjs</span>
+                                        </div>
+                                        <span className="text-xs text-slate-400 bg-slate-50 px-2 py-1 rounded-full border border-slate-100">Join Thread</span>
+                                    </div>
+                                    <div className="bg-slate-50 rounded-lg p-3 text-sm text-slate-600 italic mb-4 border border-slate-100">
+                                        "I personally stick with Zustand for 90% of my projects. It's lightweight and just works without the boilerplate..."
+                                    </div>
+                                    <div className="flex items-center gap-2 text-xs text-slate-400">
+                                        <div className="w-5 h-5 rounded-full bg-slate-200"></div>
+                                        <span>Latest Activity: Yesterday at 4:30pm</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Item 3: Discord */}
+                            <div className="relative pl-0 sm:pl-24 group">
+                                <div className="absolute left-4 top-6 transform -translate-x-1/2 w-8 h-8 bg-white border border-slate-200 rounded-full items-center justify-center z-10 hidden sm:flex">
+                                    <svg className="w-4 h-4 text-[#5865F2]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z" /></svg>
+                                </div>
+
+                                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+                                    <div className="flex items-center justify-between mb-3">
+                                        <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
+                                            <span className="bg-[#5865F2] text-white p-1 rounded-md sm:hidden"><svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z" /></svg></span>
+                                            <span>Discord conversation in #showwork-community</span>
+                                        </div>
+                                        <span className="text-xs text-slate-400 bg-slate-50 px-2 py-1 rounded-full border border-slate-100">Go to Discord</span>
+                                    </div>
+                                    <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                                        Hey Sarah! I took a look at your portfolio. The typography choices are excellent, but you might want to increase the contrast on the dark mode toggle.
+                                    </p>
+                                    <div className="flex items-center gap-2 text-xs text-slate-400">
+                                        <img className="h-5 w-5 rounded-full" src="https://ui-avatars.com/api/?name=Designer&background=random" alt="" />
+                                        <span>Latest Activity: Jan 18, 2026 at 1:30pm</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Item 4: Git PR */}
+                            <div className="relative pl-0 sm:pl-24 group">
+                                <div className="absolute left-4 top-6 transform -translate-x-1/2 w-8 h-8 bg-white border border-slate-200 rounded-full items-center justify-center z-10 hidden sm:flex">
+                                    <Github className="w-4 h-4 text-slate-700" />
+                                </div>
+                                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+                                    <div className="flex items-center justify-between mb-3">
+                                        <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
+                                            <span className="bg-slate-800 text-white p-1 rounded-md sm:hidden"><Github className="w-3 h-3" /></span>
+                                            <span>Pull Request #57 on showwork-frontend</span>
+                                        </div>
+                                        <span className="text-xs text-slate-400 bg-slate-50 px-2 py-1 rounded-full border border-slate-100">View PR</span>
+                                    </div>
+                                    <div className="bg-slate-50 border border-slate-100 rounded-lg p-2 font-mono text-xs text-slate-600 mb-4 whitespace-nowrap overflow-x-auto">
+                                        feat: Implement new user profile timeline view with responsive...
+                                    </div>
+                                    <div className="flex items-center gap-2 text-xs text-slate-400">
+                                        <img className="h-5 w-5 rounded-full" src="https://ui-avatars.com/api/?name=Dev&background=random" alt="" />
+                                        <span>Latest Activity: Jan 17, 2026 at 9:02am</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* Demo Section */}
             {/* <section id="demo" className="relative z-10 py-12 sm:py-16">

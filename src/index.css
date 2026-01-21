@@ -48,14 +48,7 @@ body {
   min-height: 100vh;
 }
 
-/* Performance optimizations */
-* {
-  /* Enable GPU acceleration for transforms and opacity changes */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  perspective: 1000;
-}
+
 
 /* Optimize animations */
 @media (prefers-reduced-motion: no-preference) {

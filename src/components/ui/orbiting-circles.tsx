@@ -38,7 +38,7 @@ export function OrbitingCircles({
         >
             {/* Local fallback for keyframes to ensure animation works without global CSS */}
             <style>{`
-        @keyframes orbit { 
+        @keyframes orbit-custom { 
           0% { transform: rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg); }
           100% { transform: rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg); }
         }
@@ -48,7 +48,7 @@ export function OrbitingCircles({
                     className="will-change-transform transform-gpu"
                     style={{
                         ...style,
-                        animation: `orbit ${duration}s linear infinite`,
+                        animation: `orbit-custom ${duration}s linear infinite`,
                         transform: 'translateZ(0)', // Force GPU acceleration
                     }}
                 >
