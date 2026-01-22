@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { supabase } from "@/lib/supabaseClient";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -120,22 +121,30 @@ const ShowWorkLanding = () => {
         setSubmitError("");
 
         try {
-            const waitlistId = import.meta.env.VITE_WAITLIST_ID;
-            const response = await fetch(`https://api.freewaitlists.com/waitlists/${waitlistId}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: email,
-                    meta: {
-                        source: 'landing-page',
-                        timestamp: new Date().toISOString()
-                    }
-                })
-            });
+            // const waitlistId = import.meta.env.VITE_WAITLIST_ID;
+            // const response = await fetch(`https://api.freewaitlists.com/waitlists/${waitlistId}`, {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({
+            //         email: email,
+            //         meta: {
+            //             source: 'landing-page',
+            //             timestamp: new Date().toISOString()
+            //         }
+            //     })
+            // });
 
-            const data = await response.json();
+            const { error } = await supabase
+                .from('emails')
+                .insert([{ email, created_at: new Date().toISOString() }]);
+
+            if (error) throw error;
+
+            // Simulate successful response for consistent UX
+            const response = { ok: true };
+            const data = { message: 'Success' };
 
             if (response.ok) {
                 console.log("Successfully added to waitlist:", data);
